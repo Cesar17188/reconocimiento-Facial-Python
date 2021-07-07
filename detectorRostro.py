@@ -1,11 +1,16 @@
+# Librerias de python
 import numpy as np
 import cv2
 
-faceClassif = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+# Clasificador para reconocimientode ojos
+# (se puede cambiar por otros reconocimientos)
+faceClassif = cv2.CascadeClassifier('haarcascade_eye.xml')
 
-image = cv2.imread('oficina.png')
+# imagen para reconocer
+image = cv2.imread('ojos_mascarilla.jpg')
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
+# escalas de la imagen (ajustar a lo que se reconoce)
 faces = faceClassif.detectMultiScale(gray,
                                      scaleFactor=1.1,
                                      minNeighbors=5,
